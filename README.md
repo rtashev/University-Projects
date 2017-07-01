@@ -1,7 +1,7 @@
 # University-Projects
 This repo contains projects that were created for university projects
 
-## Libray
+## Library
 
 This project simulates an online library. Technologies used :
 * Java 8
