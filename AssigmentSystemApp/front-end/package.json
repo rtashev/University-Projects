@@ -1,0 +1,23 @@
+{
+  "name": "assigment-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Radoslav Tashev",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "cryptojs": "^2.5.3",
+    "handlebars": "^4.0.10",
+    "jquery": "^3.2.1",
+    "navigo": "^4.8.0",
+    "systemjs": "^0.20.12",
+    "systemjs-plugin-babel": "0.0.21",
+    "systemjs-plugin-text": "0.0.9",
+    "toastr": "^2.1.2"
+  }
+}

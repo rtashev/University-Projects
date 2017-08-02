@@ -1,0 +1,95 @@
+<html>
+<head>
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    
+    <!-- Jquery   -->
+     <script
+     src="https://code.jquery.com/jquery-3.2.1.min.js"
+     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+     crossorigin="anonymous"></script>
+    
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
+       
+    
+</head>
+<body>
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <img src="http://eduroam.tu-sofia.bg/img/Logo-TU.png" style="padding-right:3px;width:55px;height:50px;">
+                <div class="navbar-brand" style="padding-right:3px"><b>Assigment System</b></div>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#/home">Home</a></li>
+                    <li><a href="#/availableAssigments">Available Assigments</a></li>
+                    {{#isStudent}}
+                    <li><a href="#/myAssigment">My Assigment</a></li>
+                    {{else}}
+                    <li class="active"><a href="#/assigments">Assigments</a></li>
+                    {{/isStudent}}
+                </ul>
+                <ul class="nav navbar-nav navbar-right" style="padding-top:7px">
+                    <span style="padding-right:10px">Logged in as <b>{{user.first_name}} {{user.last_name}}</b></span>
+                    <a href="#/logout" class="btn btn-danger">Log out</a>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Assigments Registry</h1>
+        </div>
+      <div class="jumbotron">
+          <h2>Add Assigment</h2><br><br>
+          <div class="row">
+              <div class="col-md-3">
+                <p><label for="assigment-title-id">Assigment title </label></p>
+                <p><label for="assigment-title-id">Assigment topic </label></p>
+                <p><label for="assigment-title-id">Assigment description </label></p>
+              </div>
+              <div class="col-md-9">
+                  <div class="form-group">
+                      <!--   DIFFERENT INPUTS   -->
+                      <input type="text" class="form-control" id="assigment-title">
+                      
+                      <select id="assigment-topic" class="form-control" style="margin-top:12px">
+                          <option>Artifical Inteligence (AI)</option>
+                          <option>Virtual Reality (VR)</option>
+                          <option>Computer Graphics (CG)</option>
+                      </select>
+                      
+                      <div class="form-group" style="margin-top:12px">
+                          <textarea class="form-control" rows="5" maxlength="500" id="assigment-description"></textarea>
+                          <span><i id="count">(max. 500 chars)</i></span>
+                      </div>
+                      
+                  </div>
+                  <br>
+                  <a type="submit" href="#/submitAssigment" class="btn btn-success btn-lg" style="float:right">Submit</a>                  
+              </div>
+          </div>
+      </div>
+    </div>
+    
+</body>
+    
+    <script>
+        var max = 500;
+        $("#assigment-description").keypress(function(e){
+            $("#count").text("Characters left: " + (max - $(this).val().length));
+        });
+    </script>
+    
+</html>

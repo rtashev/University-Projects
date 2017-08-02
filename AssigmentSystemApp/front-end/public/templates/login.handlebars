@@ -1,0 +1,36 @@
+<div style="position:fixed; top:-50%; left:-50%; width:200%; height:200%">
+    <img src="https://sts.fdiba.tu-sofia.bg/adfs/portal/illustration/illustration.jpg?id=3AFF7EBF3D63AC69B80F738C1F9D69AA46E42209DE9940B0E4A067CC000C5B06"
+    style="position:absolute; top:0; left:0; right:0; bottom:0; margin: auto; min-width:50%; min-height: 50%;">
+</div>
+    
+<div align="center"> 
+    <div id="login-overlay" class="modal-dialog">
+       <div class="modal-content">
+           <div class="modal-header" style="margin: 0 auto;">
+               <h1 class="modal-title">
+                   <img src="http://eduroam.tu-sofia.bg/img/Logo-TU.png" style="padding-right:3px;width:55px;height:50px;">
+                   Assigment System
+               </h1>
+           </div>
+           <div class="modal-body">
+               <p>Sign in using your FDIBA ID</p>
+               <form id="loginForm" method="POST" action="#/auth" >
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-username">Username</span>
+                        <input type="text" class="form-control" id="username-input" aria-describedby="basic-username">
+                    </div>                          
+                  <br>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-password">Password</span>
+                        <input type="password" class="form-control" id="password-input" aria-describedby="basic-password">
+                    </div>
+                   <br>
+                   <div id="error-msg" style="display:none">
+                        <p style="color:red; font-weight:bold;">Wrong username or password</p>
+                   </div>                   
+                   <a type="submit" class="btn btn-info" href="#/auth">Sign in</a>
+               </form>
+           </div>
+       </div>
+   </div>
+</div>

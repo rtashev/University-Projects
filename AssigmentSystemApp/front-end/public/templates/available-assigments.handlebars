@@ -1,0 +1,117 @@
+<html>
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <img src="http://eduroam.tu-sofia.bg/img/Logo-TU.png" style="padding-right:3px;width:55px;height:50px;">
+                <div class="navbar-brand" style="padding-right:3px"><b>Assigment System</b></div>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#/home">Home</a></li>
+                    <li class="active"><a href="#/availableAssigments">Available Assigments</a></li>
+                    {{#isStudent}}
+                    <li><a href="#/myAssigment">My Assigment</a></li>
+                    {{else}}
+                    <li><a href="#/assigments">Assigments</a></li>
+                    {{/isStudent}}
+                </ul>
+                <ul class="nav navbar-nav navbar-right" style="padding-top:7px">
+                    <span style="padding-right:10px">Logged in as <b>{{user.first_name}} {{user.last_name}}</b></span>
+                    <a href="#/logout" class="btn btn-danger">Log out</a>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h2>Available Assigments</h2>
+        </div>
+        <div class="jumbotron">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h3><b>Aritificial Inteligence (AI)</b></h3></div>
+                {{#each assigmentList}}
+                {{#isAI}}
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <p>
+                                {{this.name}}
+                                {{#isStudent}}
+                                    <a href="#/takeAssigment/{{this.id}}" class="btn btn-primary" style="float:right;margin-bottom:">Take Assigment</a>
+                                {{else}}
+                                    <a href="#/deleteAssigment/{{this.id}}" class="btn btn-danger" style="float:right;margin-bottom:">Delete Assigment</a>
+                                {{/isStudent}}
+                            </p>
+                            <span style="display:none" class="assig-description">
+                                {{this.description}}
+                            </span>
+                        </li>
+                    </ul>
+                {{/isAI}}
+                {{/each}}
+                <div class="panel-heading"><h3><b>Virtual Reality (VR)</b></h3></div>    
+                {{#each this.assigmentList}}
+                {{#isVR}}
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <p>
+                                {{this.name}}
+                                {{#isStudent}}
+                                    <a href="#/takeAssigment/{{this.id}}" class="btn btn-primary" style="float:right;margin-bottom:">Take Assigment</a>
+                                {{else}}
+                                    <a href="#/deleteAssigment/{{this.id}}" class="btn btn-danger" style="float:right;margin-bottom:">Delete Assigment</a>
+                                {{/isStudent}}
+                            </p>
+                            <span style="display:none" class="assig-description">
+                                {{this.description}}
+                            </span>
+                        </li>
+                    </ul>
+                {{/isVR}}
+                {{/each}}
+                <div class="panel-heading"><h3><b>Computer Graphics (CG)</b></h3></div>
+                {{#each this.assigmentList}}
+                {{#isCG}}    
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <p>
+                            {{this.name}}
+                            {{#isStudent}}
+                                <a href="#/takeAssigment/{{this.id}}" class="btn btn-primary" style="float:right;margin-bottom:">Take Assigment</a>
+                            {{else}}
+                                <a href="#/deleteAssigment/{{this.id}}" class="btn btn-danger" style="float:right;margin-bottom:">Delete Assigment</a>
+                            {{/isStudent}}
+                        </p>
+                        <span style="display:none" class="assig-description">
+                            {{this.description}}
+                        </span>
+                    </li>
+                </ul>
+                {{/isCG}}
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</body>
+    <script>
+        
+        $('.list-group-item').hover((el) => {
+            el.currentTarget.querySelector(".assig-description").style.display ="block";
+        }, (el) => {
+            el.currentTarget.querySelector(".assig-description").style.display ="none";
+        });
+
+    </script>
+</html>
