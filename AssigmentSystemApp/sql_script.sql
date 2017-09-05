@@ -18,12 +18,17 @@ CREATE TABLE `assigments`
 `description` varchar(600) NOT NULL,
 `is_assigned` boolean,
 `is_submitted` boolean,
+<<<<<<< HEAD
 `date_submitted` date,
+=======
+`date_released` date,
+>>>>>>> ae71731f9f709b6e15081c2cf710941879ada396
 `user_id` int,
 `pdf` blob,
 PRIMARY KEY (assigment_id),
 CONSTRAINT FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
+<<<<<<< HEAD
 
 INSERT INTO assigments ( name, category, description, is_assigned, is_submitted)
    VALUES ( 'someAssigment', 'VR', 'dsrc', false, false); 
@@ -45,3 +50,5 @@ INSERT INTO users ( name, password, first_name, last_name, role, has_assigment )
    VALUES ( 'user2', 'user2', 'Petar', 'Petrov', 'STUDENT', TRUE);
 
 
+=======
+>>>>>>> ae71731f9f709b6e15081c2cf710941879ada396

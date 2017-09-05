@@ -1,5 +1,5 @@
 # University-Projects
-This repo contains projects that were created for university projects
+This repo contains projects that were created for university assigments
 
 ## Library
 
@@ -11,3 +11,8 @@ This project simulates an online library. Technologies used :
 * MySQL 5.7
 * Apache Maven 3.3
 * Apache Tomcat 8
+
+
+## Assigment System
+
+Currently being developed
