@@ -31,16 +31,17 @@ router.on("login", () => {
         logoutController.signOut();
     }).on("availableAssigments", () =>{
         availableAssigmentsController.get();
-    }).on("takeAssigment/{:assigmentId}", () => {
-        // TODO
-        console.log('TODO : takeAssigment');
-    }).on("deleteAssigment/{:assigmentId}", () => {
-        // TODO
-        console.log('TODO : deleteAssigment')
+    }).on("takeAssigment/:assigmentId", (params) => {
+        let assigmentId = params.assigmentId;
+        availableAssigmentsController.takeAssigment(assigmentId);
+    }).on("deleteAssigment/:assigmentId", (params) => {
+        let assigmentId = params.assigmentId;
+        availableAssigmentsController.deleteAssigment(assigmentId);
     }).on("assigments", () => {
         assigmentsRegistryController.get();
-    }).on("download/{:id}", () =>{
-        //TODO implement logic for downloading a pdf
+    }).on("download/:id", (params) =>{
+        let assigmentId = params.id;
+        assigmentsRegistryController.downloadAssigment(assigmentId);
     }).on("addAssigment", () => {
         addAssigmentController.get();
     }).on("submitAssigment", () => {

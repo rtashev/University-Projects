@@ -16,4 +16,9 @@ public class AssigmentApiApp extends SpringBootServletInitializer{
 	public static void main(String[] args){
 		SpringApplication.run(AssigmentApiApp.class, args);
 	}
+	
+//	@Bean  
+//	public SessionFactory sessionFactory(HibernateEntityManagerFactory hemf){  
+//	    return hemf.getSessionFactory();  
+//	}   
 }

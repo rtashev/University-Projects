@@ -16,3 +16,9 @@ export function get(){
         });
     
 }
+
+export function downloadAssigment(assigmentId){
+    console.log('contoller');
+	window.location = "http://localhost:8085/assigment-api/downloadAssigment/" + assigmentId;
+	location.href = '#/assigments';
+}

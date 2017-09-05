@@ -18,10 +18,17 @@ export function get(){
         }
         
         userAssigment = data;
-        loadTemplate.load('my-assigment').then((template) => {
-            const templateData = objCreatorUtil.getMyAssigmentReqObj(user, userAssigment);
-            $appContainer.html(template(templateData));
-        });       
+        if(userAssigment.isSubmitted){
+            loadTemplate.load('my-assigment-submitted').then((template) => {
+                $appContainer.html(template(user));
+            });
+        }else{
+            loadTemplate.load('my-assigment').then((template) => {
+                const templateData = objCreatorUtil.getMyAssigmentReqObj(user, userAssigment);
+                $appContainer.html(template(templateData));
+            });
+        }
+               
     }).catch(() => {
         loadTemplate.load('my-assigment-nodata').then((template) => {
             $appContainer.html(template(user));

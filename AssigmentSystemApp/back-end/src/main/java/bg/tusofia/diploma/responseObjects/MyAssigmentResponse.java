@@ -6,6 +6,7 @@ public class MyAssigmentResponse {
 	private String name;
 	private String description;
 	private String category;
+	private Boolean isSubmitted;
 	
 	public MyAssigmentResponse(){
 		
@@ -16,6 +17,14 @@ public class MyAssigmentResponse {
 		this.name = name;
 		this.description = description;
 		this.category = category;
+	}
+	
+	public MyAssigmentResponse(Integer id, String name, String description, String category, Boolean isSubmitted){
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.category = category;
+		this.isSubmitted = isSubmitted;
 	}
 
 	public Integer getId() {
@@ -48,6 +57,14 @@ public class MyAssigmentResponse {
 
 	public void setCategory(String category) {
 		this.category = category;
+	}
+
+	public Boolean getIsSubmitted() {
+		return isSubmitted;
+	}
+
+	public void setIsSubmitted(Boolean isSubmitted) {
+		this.isSubmitted = isSubmitted;
 	}
 	
 	

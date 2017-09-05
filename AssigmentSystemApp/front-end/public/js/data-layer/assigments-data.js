@@ -24,3 +24,19 @@ export function submitMyAssigment(assigmentId, data){
     const url = 'http://localhost:8085/assigment-api/submitMyAssigment/' + assigmentId;
     return Requester.postFile(url, data);
 }
+
+export function deleteAssigment(assigmentId){
+    const queryString = 'http://localhost:8085/assigment-api/deleteAssigment/' + assigmentId;
+    return Requester.post(queryString, null);
+}
+
+export function takeAssigment(assigmentId, userId){
+    const queryString = 'http://localhost:8085/assigment-api/takeAssigment/' + assigmentId +'/' + userId;
+    return Requester.post(queryString, null);
+}
+
+export function downloadAssigment(assigmentId){
+    const queryString = 'http://localhost:8085/assigment-api/downloadAssigment/' + assigmentId;
+    console.log(queryString);
+    return Requester.get(queryString);
+}

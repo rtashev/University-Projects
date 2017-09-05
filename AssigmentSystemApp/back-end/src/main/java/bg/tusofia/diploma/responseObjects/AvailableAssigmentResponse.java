@@ -42,6 +42,12 @@ public class AvailableAssigmentResponse {
 	public void setCategory(String category) {
 		this.category = category;
 	}
+
+	@Override
+	public String toString() {
+		return "OBJ : " + "/n" + "id:"+this.getId().intValue() + "/n" + "name:"+this.name 
+				+"/n" + "descr:"+this.getDescription()+"/n"+"category:"+this.category;
+	}
 	
 	
 }
